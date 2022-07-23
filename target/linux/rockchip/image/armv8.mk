@@ -2,6 +2,16 @@
 #
 # Copyright (C) 2020 Tobias Maedel
 
+define Device/bozz-sw799a
+  DEVICE_VENDOR := bozz
+  DEVICE_MODEL := sw799a
+  SOC := rk3399
+  UBOOT_DEVICE_NAME := bozz-sw799a-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-bin | gzip | append-metadata
+  DEVICE_PACKAGES := -urngd
+endef
+TARGET_DEVICES += bozz-sw799a
+
 define Device/friendlyarm_nanopi-r2c
   DEVICE_VENDOR := FriendlyARM
   DEVICE_MODEL := NanoPi R2C

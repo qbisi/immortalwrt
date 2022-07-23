@@ -75,6 +75,17 @@ endef
 
 # RK3399 boards
 
+define U-Boot/bozz-sw799a-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=bozz-sw799a
+  BUILD_DEVICES:= \
+    bozz-sw799a
+  DEPENDS:=+PACKAGE_u-boot-bozz-sw799a-rk3399:arm-trusted-firmware-rk3399
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3399_bl31_v1.35.elf
+  USE_RKBIN:=1
+endef
+
 define U-Boot/nanopi-r4s-rk3399
   BUILD_SUBTARGET:=armv8
   NAME:=NanoPi R4S
@@ -107,6 +118,7 @@ define U-Boot/rockpro64-rk3399
 endef
 
 UBOOT_TARGETS := \
+  bozz-sw799a-rk3399 \
   nanopi-r4s-rk3399 \
   rock-pi-4-rk3399 \
   rockpro64-rk3399 \
